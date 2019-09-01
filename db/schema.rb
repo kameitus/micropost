@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2019_08_31_112825) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "favs", "microposts"
   add_foreign_key "favs", "users"
-  add_foreign_key "favs", "users", column: "micropost_id"
   add_foreign_key "microposts", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"

@@ -1,11 +1,11 @@
-<% if current_user.faved?(micropost) %>
-   <%= form_with(model: current_user.favs.find_by(micropost_id: micropost.id),local: true, method: :delete) do|f|  %>
-     <%= hidden_field_tag :micropost_id, micropost.id %>
-     <%= f.submit "Unlike", class: "btn btn-danger btn-block" %>
+<% if current_user.faved?(favpost) %>
+   <%= form_with(model: current_user.favs.find_by(micropost_id: favpost.id),local: true, method: :delete) do|f|  %>
+     <%= hidden_field_tag :micropost_id, favpost.id %>
+     <%= f.submit "Unlike", class: "btn btn-success btn-sm" %>
    <% end %>
   <% else %>
    <%= form_with(model: current_user.favs.build, local: true) do |f| %>
-     <%= hidden_field_tag :micropost_id, micropost.id %>
-     <%= f.submit "Like", class: "btn btn-primary btn-block" %>
+     <%= hidden_field_tag :micropost_id, favpost.id %>
+     <%= f.submit "Like", class: "btn btn-primary btn-sm" %>
    <% end %>
 <% end %>
